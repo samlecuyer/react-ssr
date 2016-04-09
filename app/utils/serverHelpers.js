@@ -10,7 +10,7 @@ export const helpers = {
         <title>YouTube Playlist</title>
       </head>
       <body>
-        <div id="root">${html}</div>
+        <div id='app'>${html}</div>
       </body>
       </html>
     `
