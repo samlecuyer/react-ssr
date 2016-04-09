@@ -1,23 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+// import reducer
 
-// Components
-import Test from './components/Test';
-
-class Hook extends React.Component {
-  render(){
-    return(
-      <div>
-        Hello from Hook
-        <Test />
-      </div>
-    )
-  }
-}
-
-// render(
-//   <App />,
-//   document.getElementById('app')
-// )
-
-export default Hook;
+// Containers
+import App from './containers/App';
