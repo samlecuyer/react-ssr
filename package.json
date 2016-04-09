@@ -1,0 +1,25 @@
+{
+  "name": "react-ssr",
+  "version": "1.0.0",
+  "description": "### YouTube Playlist Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlbernardo/react-ssr.git"
+  },
+  "keywords": [
+    "react",
+    "server-side-rendering",
+    "redux",
+    "youtube"
+  ],
+  "author": "Carl Bernardo // carlbernrdo@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlbernardo/react-ssr/issues"
+  },
+  "homepage": "https://github.com/carlbernardo/react-ssr#readme"
+}
