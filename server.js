@@ -32,6 +32,10 @@ function renderFullPage(html, initialState){
     </head>
     <body>
       <div id='app'>${html}</div>
+      <script>
+        window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
+      </script>
+      <script src='/dist/bundle.js'></script>
     </body>
     </html>
   `
