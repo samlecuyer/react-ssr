@@ -1,16 +1,41 @@
 import express from 'express';
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
-import { helpers } from './app/utils/serverHelpers';
+import playlistApp from './app/reducers/index';
 import App from './app/containers/App';
 
 const app = express();
 const port = 8080;
-const hook = renderToString(<App />);
 
-app.get('/', function(req, res){
-  res.send(helpers.renderFullPage(hook));
-});
+app.use(handleRender);
+
+function handleRender(req, res){
+  const store = createStore(playlistApp);
+  const html = renderToString(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  )
+  const initialState = store.getState();
+
+  res.send(renderFullPage(html, initialState));
+}
+
+function renderFullPage(html, initialState){
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>YouTube Playlist</title>
+    </head>
+    <body>
+      <div id='app'>${html}</div>
+    </body>
+    </html>
+  `
+}
 
 app.listen(port);
 
