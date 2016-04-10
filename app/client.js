@@ -9,7 +9,7 @@ const initialState = window.__INITIAL_STATE__;
 const store = createStore(playlistApp, initialState);
 
 render(
-  <Provider>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('app')
