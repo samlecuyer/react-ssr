@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import playlistReducer from './playlistReducer';
 
-const playlistApp = combineReducers({
+const rootReducer = combineReducers({
   playlistReducer
-});
+})
 
-export default playlistApp;
+export default rootReducer;
