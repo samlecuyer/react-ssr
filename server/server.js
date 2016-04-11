@@ -21,12 +21,16 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig
 app.use(webpackHotMiddleware(compiler));
 
 app.use(setHeaders);
-app.use('/', Express.static( __dirname + '/../common' ));
+app.use('/', Express.static(__dirname + '/../common'));
 
 //-----------------------------------------------------------------------------------
 // ROUTES
 app.get('/', function(req,res){
-  handleRender(req, res);
+  youtube('Elton John').then(function(result){
+    return JSON.parse(result);
+  }).then(function(data){
+    handleRender(req, res, data.items);
+  });
 });
 
 app.get('/api/artists/*', function(req, res){
@@ -40,8 +44,15 @@ app.get('/api/artists/*', function(req, res){
 });
 
 //-----------------------------------------------------------------------------------
-function handleRender(req, res) {
-    const initialState = {};
+function handleRender(req, res, data) {
+    const initialState = {
+      playlistReducer: {
+        artists: ['Elton John', 'Stevie Wonder', 'Frank Sinatra', 'Louis Armstrong'],
+        currentArtist: 'Elton John',
+        videos: data,
+        isFetching: false
+      }
+    };
     const store = configureStore(initialState);
     const html = renderToString(
       <Provider store={store}>
@@ -49,10 +60,12 @@ function handleRender(req, res) {
       </Provider>
     );
 
-    res.send(renderFullPage(html, initialState));
+    const finalState = store.getState();
+
+    res.send(renderFullPage(html, finalState));
 }
 
-function renderFullPage(html, initialState) {
+function renderFullPage(html, state) {
   return `
     <!doctype html>
     <html>
@@ -64,7 +77,7 @@ function renderFullPage(html, initialState) {
       <body>
         <div id="app">${html}</div>
         <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
+          window.__INITIAL_STATE__ = ${JSON.stringify(state)}
         </script>
         <script src="/static/bundle.js"></script>
       </body>
