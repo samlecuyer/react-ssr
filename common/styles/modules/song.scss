@@ -1,3 +1,25 @@
 .song {
-  list-style: none;
+  background-color: $song-background;
+  padding: 30px;
+
+  .song-text {
+    bottom: 20px;
+
+    h2 {
+      font-size: 34px;
+      color: $song-main-color;
+      font-family: $font-primary;
+    }
+
+    span {
+      font-size: 16px;
+      color: $song-accent-color;
+      font-family: $font-accent;
+    }
+  }
+
+  iframe {
+    width: 420px;
+    height: 315px;
+  }
 }
