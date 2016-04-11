@@ -24,7 +24,7 @@ class Playlist extends React.Component{
       )
     } else {
       return(
-        <div>
+        <div className='playlist'>
           <h1>YouTube Playlist</h1>
           <div className='row'>
             <Dropdown
@@ -39,7 +39,6 @@ class Playlist extends React.Component{
   }
 
   render(){
-    console.log('props in application', this.props);
     return (
       <div className='container-fluid'>
         {this.displayHome()}
