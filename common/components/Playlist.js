@@ -10,7 +10,7 @@ class Playlist extends React.Component{
   }
 
   displayHome(){
-    const { isFetching } = this.props;
+    const { artists, currentArtist, videos, isFetching, selectArtist } = this.props;
 
     if(isFetching){
       return(
@@ -21,8 +21,11 @@ class Playlist extends React.Component{
         <div>
           <h1>YouTube Playlist</h1>
           <div className='row'>
-            <Dropdown {...this.props} />
-            <Songlist />
+            <Dropdown
+              artists={artists}
+              currentArtist={currentArtist}
+              selectArtist={selectArtist} />
+            <Songlist videos={videos} />
           </div>
         </div>
       )

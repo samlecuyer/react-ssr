@@ -4,8 +4,7 @@ class Loading extends React.Component {
   render(){
     return(
       <div>
-        <img
-          src='./../styles/images/loading.gif' />
+        <img src='./../styles/images/loading.gif' />
       </div>
     )
   }
