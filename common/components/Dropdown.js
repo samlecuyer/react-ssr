@@ -29,7 +29,7 @@ class Dropdown extends React.Component {
 
   render(){
     const { currentArtist } = this.props;
-
+    
     return(
       <DropdownButton
         title={currentArtist}

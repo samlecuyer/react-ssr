@@ -20,9 +20,15 @@ const compiler = webpack(webpackConfig);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
 
-app.use(handleRender);
+//-----------------------------------------------------------------------------------
+// ROUTES
+app.get('/', function(req,res){
+  handleRender(req, res);
+});
 
-// youtube();
+app.get('/api/artists', function(req, res){
+  console.log('inside get for youtube data');
+});
 
 //-----------------------------------------------------------------------------------
 function handleRender(req, res) {
@@ -56,11 +62,6 @@ function renderFullPage(html, initialState) {
     </html>
   `
 }
-//-----------------------------------------------------------------------------------
-// API ROUTES
-app.get('/api/artists', function(req, res){
-  console.log('inside get for youtube data');
-});
 //-----------------------------------------------------------------------------------
 
 app.listen(port);

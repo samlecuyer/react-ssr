@@ -10,7 +10,6 @@ class DropdownSelection extends React.Component {
 
   handleSelection(e){
     const { artist, selectArtist } = this.props;
-    e.preventDefault();
 
     selectArtist(artist);
   }
