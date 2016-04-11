@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Test from '../components/Test';
+import Playlist from '../components/Playlist';
 // import playlistActions
 
 function mapStateToProps(state){
@@ -15,4 +15,4 @@ function mapDispatchToProps(dispatch){
   return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export default connect(mapStateToProps, mapDispatchToProps)(Playlist);

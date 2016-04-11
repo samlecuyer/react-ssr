@@ -1,23 +1,25 @@
 import React from 'react';
 
-class Test extends React.Component{
+class Playlist extends React.Component{
   constructor(){
     super();
     this.clickMe = this.clickMe.bind(this);
   }
 
   clickMe(){
-    console.log('props in Test:', this.props);
+    console.log('props in Playlist:', this.props);
   }
 
   render(){
     return (
-      <div>
+      <div className='container-fluid'>
         <h1>Hello from Test Component</h1>
+        <div className='row'>
         <button onClick={this.clickMe}>Click</button>
+        </div>
       </div>
     )
   }
 }
 
-export default Test;
+export default Playlist;
