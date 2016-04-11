@@ -21,6 +21,7 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig
 app.use(webpackHotMiddleware(compiler));
 
 app.use(setHeaders);
+app.use('/', Express.static( __dirname + '/../common' ));
 
 //-----------------------------------------------------------------------------------
 // ROUTES
