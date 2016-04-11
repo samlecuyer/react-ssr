@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from './Loading';
-import Dropdown from './Dropdown';
+import DropdownInstance from './DropdownInstance';
 import Songlist from './Songlist';
 
 class Playlist extends React.Component{
@@ -27,7 +27,7 @@ class Playlist extends React.Component{
         <div className='playlist'>
           <h1>YouTube Playlist</h1>
           <div className='row'>
-            <Dropdown
+            <DropdownInstance
               artists={artists}
               currentArtist={currentArtist}
               selectArtist={selectArtist} />

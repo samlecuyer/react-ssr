@@ -1,8 +1,8 @@
 import React from 'react';
-import { DropdownButton } from 'react-bootstrap';
+import { Dropdown, Glyphicon } from 'react-bootstrap';
 import DropdownSelection from './DropdownSelection';
 
-class Dropdown extends React.Component {
+class DropdownInstance extends React.Component {
   constructor(){
     super();
     this.displayDropdown = this.displayDropdown.bind(this);
@@ -29,16 +29,22 @@ class Dropdown extends React.Component {
 
   render(){
     const { currentArtist } = this.props;
-    
+
     return(
-      <DropdownButton
-        title={currentArtist}
+      <Dropdown
         key='artist-dropdown'
         id='dropdown-basic-artist'>
+        <Dropdown.Toggle>
+          <Glyphicon glyph='music' />
+          <span>&nbsp;</span>
+          {currentArtist}
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
           {this.displayDropdown()}
-      </DropdownButton>
+        </Dropdown.Menu>
+      </Dropdown>
     )
   }
 }
 
-export default Dropdown;
+export default DropdownInstance;
