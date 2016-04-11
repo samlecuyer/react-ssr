@@ -12,7 +12,7 @@ class Playlist extends React.Component{
       <div className='container-fluid'>
         <h1>YouTube Playlist</h1>
         <div className='row'>
-          <Dropdown />
+          <Dropdown {...this.props} />
           <Songlist />
         </div>
       </div>
