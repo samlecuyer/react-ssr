@@ -9,6 +9,12 @@ class Playlist extends React.Component{
     this.displayHome = this.displayHome.bind(this);
   }
 
+  componentDidMount(){
+    const { stopSpinner } = this.props;
+
+    stopSpinner();
+  }
+
   displayHome(){
     const { artists, currentArtist, videos, isFetching, selectArtist } = this.props;
 

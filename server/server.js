@@ -50,7 +50,7 @@ function handleRender(req, res, data) {
         artists: ['Elton John', 'Stevie Wonder', 'Frank Sinatra', 'Louis Armstrong'],
         currentArtist: 'Elton John',
         videos: data,
-        isFetching: false
+        isFetching: true
       }
     };
     const store = configureStore(initialState);
@@ -59,13 +59,12 @@ function handleRender(req, res, data) {
         <App />
       </Provider>
     );
-
     const finalState = store.getState();
 
     res.send(renderFullPage(html, finalState));
 }
 
-function renderFullPage(html, state) {
+function renderFullPage(html, clientInitialState) {
   return `
     <!doctype html>
     <html>
@@ -77,7 +76,7 @@ function renderFullPage(html, state) {
       <body>
         <div id="app">${html}</div>
         <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(state)}
+          window.__INITIAL_STATE__ = ${JSON.stringify(clientInitialState)}
         </script>
         <script src="/static/bundle.js"></script>
       </body>

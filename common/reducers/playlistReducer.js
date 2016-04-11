@@ -22,6 +22,10 @@ export default function playlistReducer(state = initialState, action){
         videos: action.data,
         isFetching: false
       })
+    case ActionTypes.STOP_SPINNER:
+      return Object.assign({}, state, {
+        isFetching: false
+      })
     default:
       return state;
   }
