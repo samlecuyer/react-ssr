@@ -11,6 +11,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from '../common/containers/App';
 import rootReducer from './../common/reducers';
+import youtube from './helpers/youtube';
 
 const app = new Express();
 const port = 8080;
@@ -21,6 +22,9 @@ app.use(webpackHotMiddleware(compiler));
 
 app.use(handleRender);
 
+// youtube();
+
+//-----------------------------------------------------------------------------------
 function handleRender(req, res) {
     const store = createStore(rootReducer);
     const initialState = store.getState();
@@ -50,5 +54,11 @@ function renderFullPage(html, initialState) {
     </html>
   `
 }
+//-----------------------------------------------------------------------------------
+// API ROUTES
+app.get('/api/artists', function(req, res){
+  console.log('inside get for youtube data');
+});
+//-----------------------------------------------------------------------------------
 
 app.listen(port);

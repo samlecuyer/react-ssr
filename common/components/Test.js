@@ -12,11 +12,10 @@ class Test extends React.Component{
 
   render(){
     return (
-      <p>
-        Hello from test
+      <div>
+        <h1>Hello from Test Component</h1>
         <button onClick={this.clickMe}>Click</button>
-        {this.props.currentArtist}
-      </p>
+      </div>
     )
   }
 }
