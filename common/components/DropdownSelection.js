@@ -4,7 +4,14 @@ import { DropdownButton, MenuItem } from 'react-bootstrap';
 class DropdownSelection extends React.Component {
   constructor(){
     super();
+    this.handleSelection = this.handleSelection.bind(this);
     this.displayButton = this.displayButton.bind(this);
+  }
+
+  handleSelection(){
+    const { artist } = this.props;
+
+    console.log(artist);
   }
 
   displayButton(){
@@ -12,13 +19,18 @@ class DropdownSelection extends React.Component {
 
     if(active){
       return(
-        <MenuItem eventKey={eventKey} active>
+        <MenuItem
+          eventKey={eventKey}
+          onClick={this.handleSelection}
+          active>
           {artist}
         </MenuItem>
       )
     } else {
       return(
-        <MenuItem eventKey={eventKey}>
+        <MenuItem
+          eventKey={eventKey}
+          onClick={this.handleSelection}>
           {artist}
         </MenuItem>
       )
