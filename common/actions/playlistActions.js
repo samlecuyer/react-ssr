@@ -11,17 +11,14 @@ export const selectArtist = (artist) => {
   return dispatch => {
     dispatch(setCurrentArtist(artist));
 
-    return fetch('/api/artists', {
-      method: 'GET',
-      data: JSON.stringify({
-        artist: artist
-      })
+    return fetch(`/api/artists/${artist}`, {
+      method: 'GET'
     })
     .then(response => {
       return response.json();
     })
     .then(response => {
-      console.log('response from server', response);
+      console.log('response from server:', response);
     })
   }
 }

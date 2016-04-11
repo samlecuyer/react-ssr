@@ -26,8 +26,12 @@ app.get('/', function(req,res){
   handleRender(req, res);
 });
 
-app.get('/api/artists', function(req, res){
-  console.log('inside get for youtube data');
+app.get('/api/artists/*', function(req, res){
+  let artist = req.params[0];
+
+  youtube(artist).then(function(result){
+    res.json(result.body);
+  });
 });
 
 //-----------------------------------------------------------------------------------
