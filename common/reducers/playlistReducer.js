@@ -3,7 +3,8 @@ import * as ActionTypes from './../actions/playlistActions';
 const initialState = {
   artists: ['Elton John', 'Stevie Wonder', 'Frank Sinatra', 'Louis Armstrong'],
   currentArtist: 'Elton John',
-  videos: []
+  videos: [],
+  isFetching: false
 }
 
 export default function playlistReducer(state = initialState, action){
@@ -12,9 +13,14 @@ export default function playlistReducer(state = initialState, action){
       return Object.assign({}, state, {
         currentArtist: action.artist
       });
-    case ActionTypes.LOAD_VIDEOS:
+    case ActionTypes.LOAD_VIDEO_REQUEST:
       return Object.assign({}, state, {
-        videos: action.data
+        isFetching: true
+      })
+    case ActionTypes.LOAD_VIDEO_SUCCESS:
+      return Object.assign({}, state, {
+        videos: action.data,
+        isFetching: false
       })
     default:
       return state;

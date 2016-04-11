@@ -1,5 +1,6 @@
 export const SET_CURRENT_ARTIST = 'SET_CURRENT_ARTIST';
-export const LOAD_VIDEOS = 'LOAD_VIDEOS';
+export const LOAD_VIDEO_REQUEST = 'LOAD_VIDEO_REQUEST';
+export const LOAD_VIDEO_SUCCESS = 'LOAD_VIDEO_SUCCESS';
 
 const setCurrentArtist = (artist) => {
   return {
@@ -8,9 +9,15 @@ const setCurrentArtist = (artist) => {
   }
 }
 
-const loadVideos = (data) => {
+const loadVideoRequest = () => {
   return {
-    type: LOAD_VIDEOS,
+    type: LOAD_VIDEO_REQUEST
+  }
+}
+
+const loadVideoSuccess = (data) => {
+  return {
+    type: LOAD_VIDEO_SUCCESS,
     data
   }
 }
@@ -18,6 +25,7 @@ const loadVideos = (data) => {
 export const selectArtist = (artist) => {
   return dispatch => {
     dispatch(setCurrentArtist(artist));
+    dispatch(loadVideoRequest());
 
     return fetch(`/api/artists/${artist}`, {
       method: 'GET'
@@ -26,7 +34,7 @@ export const selectArtist = (artist) => {
       return response.json();
     })
     .then(response => {
-      dispatch(loadVideos(response));
+      dispatch(loadVideoSuccess(response));
     })
   }
 }

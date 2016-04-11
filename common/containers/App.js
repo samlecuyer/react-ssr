@@ -7,7 +7,8 @@ function mapStateToProps(state){
   return {
     artists: state.playlistReducer.artists,
     currentArtist: state.playlistReducer.currentArtist,
-    videos: state.playlistReducer.videos
+    videos: state.playlistReducer.videos,
+    isFetching: state.playlistReducer.isFetching
   }
 }
 
