@@ -1,18 +1,33 @@
 import React from 'react';
+import { Button, Glyphicon } from 'react-bootstrap';
 import Loading from './Loading';
 import DropdownInstance from './DropdownInstance';
+import ArtistSelectionModal from './ArtistSelectionModal';
 import Songlist from './Songlist';
 
 class Playlist extends React.Component{
   constructor(){
     super();
+    this.open = this.open.bind(this);
+    this.close = this.close.bind(this);
     this.displayHome = this.displayHome.bind(this);
+    this.state = {
+      showModal: false
+    }
   }
 
   componentDidMount(){
     const { stopSpinner } = this.props;
 
     stopSpinner();
+  }
+
+  open(){
+    this.setState({ showModal: true });
+  }
+
+  close(){
+    this.setState({ showModal: false });
   }
 
   displayHome(){
@@ -32,6 +47,17 @@ class Playlist extends React.Component{
                 artists={artists}
                 currentArtist={currentArtist}
                 selectArtist={selectArtist} />
+              <Button onClick={this.open}>
+                <Glyphicon glyph='music' />
+                <span>&nbsp;</span>
+                {currentArtist}
+              </Button>
+              <ArtistSelectionModal
+                artists={artists}
+                currentArtist={currentArtist}
+                selectArtist={selectArtist}
+                showModal={this.state.showModal}
+                close={this.close} />
             </div>
             <div className='col-md-12'>
               <Songlist
