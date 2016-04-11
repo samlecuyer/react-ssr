@@ -1,7 +1,7 @@
 import * as ActionTypes from './../actions/playlistActions';
 
 const initialState = {
-  artists: ['Elton John', 'Stevie Wonder', 'Frank Sinatra', 'Louis Armstrong'],
+  artists: ['Elton John', 'Stevie Wonder', 'Frank Sinatra', 'Louis Armstrong', 'Lil Wayne'],
   currentArtist: 'Elton John',
   videos: [],
   isFetching: false
