@@ -5,6 +5,9 @@ import { createStore } from 'redux';
 import rootReducer from '../common/reducers';
 import App from '../common/containers/App';
 
+//Styling
+import './../common/styles/styles.scss';
+
 const initialState = window.__INITIAL_STATE__;
 const store = createStore(rootReducer, initialState);
 const rootEl = document.getElementById('app');
