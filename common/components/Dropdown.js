@@ -9,10 +9,21 @@ class Dropdown extends React.Component {
   }
 
   displayDropdown(){
-    const { artists, currentArtist } = this.props;
+    const { artists, currentArtist, selectArtist } = this.props;
 
     return artists.map((artist, ind) => {
-      return currentArtist === artist ? <DropdownSelection artist={artist} eventKey={ind + 1} key={ind} active={true} /> : <DropdownSelection artist={artist} eventKey={ind + 1} key={ind} />;
+      return currentArtist === artist ?
+        <DropdownSelection
+          artist={artist}
+          selectArtist={selectArtist}
+          eventKey={ind + 1}
+          key={ind}
+          active={true} /> :
+          <DropdownSelection
+          artist={artist}
+          selectArtist={selectArtist}
+          eventKey={ind + 1}
+          key={ind} />;
     });
   }
 

@@ -10,7 +10,8 @@ import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from '../common/containers/App';
-import rootReducer from './../common/reducers';
+import configureStore from './../common/store/configureStore';
+// import rootReducer from './../common/reducers';
 import youtube from './helpers/youtube';
 
 const app = new Express();
@@ -26,8 +27,8 @@ app.use(handleRender);
 
 //-----------------------------------------------------------------------------------
 function handleRender(req, res) {
-    const store = createStore(rootReducer);
-    const initialState = store.getState();
+    const initialState = {};
+    const store = configureStore(initialState);
     const html = renderToString(
       <Provider store={store}>
         <App />
