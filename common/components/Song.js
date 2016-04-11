@@ -5,7 +5,7 @@ class Song extends React.Component{
     const { id } = this.props;
 
     return(
-      <li>
+      <li className='song'>
         <iframe
           width='420'
           height='315'
