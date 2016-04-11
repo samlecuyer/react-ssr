@@ -8,6 +8,7 @@ class Playlist extends React.Component{
   }
 
   render(){
+    console.log('props in application', this.props);
     return (
       <div className='container-fluid'>
         <h1>YouTube Playlist</h1>

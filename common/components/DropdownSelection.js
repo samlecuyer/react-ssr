@@ -8,7 +8,7 @@ class DropdownSelection extends React.Component {
     this.displayButton = this.displayButton.bind(this);
   }
 
-  handleSelection(e){
+  handleSelection(){
     const { artist, selectArtist } = this.props;
 
     selectArtist(artist);

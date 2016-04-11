@@ -12,6 +12,6 @@ export default function(query){
   let url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + artist + '&type=video&videoEmbeddable=true&key=' + youtube_key;
 
   return request(url).then(function(result){
-    return result;
+    return result.body;
   })
 }

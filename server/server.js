@@ -20,6 +20,8 @@ const compiler = webpack(webpackConfig);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
 
+app.use(setHeaders);
+
 //-----------------------------------------------------------------------------------
 // ROUTES
 app.get('/', function(req,res){
@@ -30,7 +32,9 @@ app.get('/api/artists/*', function(req, res){
   let artist = req.params[0];
 
   youtube(artist).then(function(result){
-    res.json(result.body);
+    return JSON.parse(result);
+  }).then(function(data){
+    res.json(data.items);
   });
 });
 
@@ -65,6 +69,12 @@ function renderFullPage(html, initialState) {
       </body>
     </html>
   `
+}
+
+function setHeaders(req, res, next){
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 }
 //-----------------------------------------------------------------------------------
 

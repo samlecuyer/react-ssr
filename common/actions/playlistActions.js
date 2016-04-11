@@ -1,9 +1,17 @@
 export const SET_CURRENT_ARTIST = 'SET_CURRENT_ARTIST';
+export const LOAD_VIDEOS = 'LOAD_VIDEOS';
 
 const setCurrentArtist = (artist) => {
   return {
     type: SET_CURRENT_ARTIST,
     artist
+  }
+}
+
+const loadVideos = (data) => {
+  return {
+    type: LOAD_VIDEOS,
+    data
   }
 }
 
@@ -18,7 +26,7 @@ export const selectArtist = (artist) => {
       return response.json();
     })
     .then(response => {
-      console.log('response from server:', response);
+      dispatch(loadVideos(response));
     })
   }
 }

@@ -4,7 +4,12 @@ class Song extends React.Component{
   render(){
     return(
       <li>
-        I am a song.
+        <iframe
+          width='420'
+          height='315'
+          src='http://www.youtube.com/embed/0CFuCYNx-1g'
+          frameBorder='0'
+          allowFullScreen></iframe>
       </li>
     )
   }

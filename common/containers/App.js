@@ -6,7 +6,8 @@ import * as playlistActions from './../actions/playlistActions';
 function mapStateToProps(state){
   return {
     artists: state.playlistReducer.artists,
-    currentArtist: state.playlistReducer.currentArtist
+    currentArtist: state.playlistReducer.currentArtist,
+    videos: state.playlistReducer.videos
   }
 }
 
