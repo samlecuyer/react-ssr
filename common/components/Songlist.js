@@ -20,9 +20,11 @@ class Songlist extends React.Component{
   }
 
   render(){
+    const { currentArtist } = this.props;
+
     return(
       <div className='row songlist'>
-        <h2>Playlist</h2>
+        <h2>{currentArtist} Playlist</h2>
         <div className='col-md-12'>
           {this.displaySonglist()}
         </div>

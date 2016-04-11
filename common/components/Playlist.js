@@ -27,11 +27,17 @@ class Playlist extends React.Component{
         <div className='playlist'>
           <h1>YouTube Playlist</h1>
           <div className='row'>
-            <DropdownInstance
-              artists={artists}
-              currentArtist={currentArtist}
-              selectArtist={selectArtist} />
-            <Songlist videos={videos} />
+            <div className='col-md-12 dropdown-instance'>
+              <DropdownInstance
+                artists={artists}
+                currentArtist={currentArtist}
+                selectArtist={selectArtist} />
+            </div>
+            <div className='col-md-12'>
+              <Songlist
+                currentArtist={currentArtist}
+                videos={videos} />
+            </div>
           </div>
         </div>
       )
