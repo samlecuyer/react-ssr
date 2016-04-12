@@ -1,33 +1,19 @@
+export const ADD_ARTIST = 'ADD_ARTIST';
 export const SET_CURRENT_ARTIST = 'SET_CURRENT_ARTIST';
-export const LOAD_VIDEO_REQUEST = 'LOAD_VIDEO_REQUEST';
-export const LOAD_VIDEO_SUCCESS = 'LOAD_VIDEO_SUCCESS';
-export const STOP_SPINNER = 'STOP_SPINNER';
+
+export const addArtist = (artist) => {
+  return dispatch => {
+    dispatch({
+      type: ADD_ARTIST,
+      artist
+    })
+  }
+}
 
 const setCurrentArtist = (artist) => {
   return {
     type: SET_CURRENT_ARTIST,
     artist
-  }
-}
-
-const loadVideoRequest = () => {
-  return {
-    type: LOAD_VIDEO_REQUEST
-  }
-}
-
-const loadVideoSuccess = (data) => {
-  return {
-    type: LOAD_VIDEO_SUCCESS,
-    data
-  }
-}
-
-export const stopSpinner = () => {
-  return dispatch => {
-    dispatch({
-      type: STOP_SPINNER
-    })
   }
 }
 
@@ -44,6 +30,32 @@ export const selectArtist = (artist) => {
     })
     .then(response => {
       dispatch(loadVideoSuccess(response));
+    })
+  }
+}
+
+export const LOAD_VIDEO_REQUEST = 'LOAD_VIDEO_REQUEST';
+export const LOAD_VIDEO_SUCCESS = 'LOAD_VIDEO_SUCCESS';
+
+const loadVideoRequest = () => {
+  return {
+    type: LOAD_VIDEO_REQUEST
+  }
+}
+
+const loadVideoSuccess = (data) => {
+  return {
+    type: LOAD_VIDEO_SUCCESS,
+    data
+  }
+}
+
+export const STOP_SPINNER = 'STOP_SPINNER';
+
+export const stopSpinner = () => {
+  return dispatch => {
+    dispatch({
+      type: STOP_SPINNER
     })
   }
 }

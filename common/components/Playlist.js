@@ -31,7 +31,7 @@ class Playlist extends React.Component{
   }
 
   displayHome(){
-    const { artists, currentArtist, videos, isFetching, selectArtist } = this.props;
+    const { artists, addArtist, currentArtist, videos, isFetching, selectArtist } = this.props;
 
     if(isFetching){
       return(
@@ -55,6 +55,7 @@ class Playlist extends React.Component{
               <ArtistSelectionModal
                 artists={artists}
                 currentArtist={currentArtist}
+                addArtist={addArtist}
                 selectArtist={selectArtist}
                 showModal={this.state.showModal}
                 close={this.close} />

@@ -18,11 +18,13 @@ class ArtistSelectionModal extends React.Component {
   }
 
   handleSubmit(e){
+    const { addArtist, selectArtist, close } = this.props;
     e.preventDefault();
 
-    // dispatch action to add artist
-    console.log(this.state.value);
-    
+    addArtist(this.state.value);
+    selectArtist(this.state.value);
+    close();
+
     this.setState({ value: '' });
   }
 
