@@ -5,7 +5,25 @@ import ArtistSelectionModalButton from './ArtistSelectionModalButton';
 class ArtistSelectionModal extends React.Component {
   constructor(){
     super();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.displayMenu = this.displayMenu.bind(this);
+    this.state = {
+      value: ''
+    }
+  }
+
+  handleChange(e){
+    this.setState({ value: e.target.value })
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+
+    // dispatch action to add artist
+    console.log(this.state.value);
+    
+    this.setState({ value: '' });
   }
 
   displayMenu(){
@@ -28,17 +46,30 @@ class ArtistSelectionModal extends React.Component {
   }
 
   render(){
-    console.log('props in modal', this.props);
+    const { currentArtist } = this.props;
+
     return(
       <Modal show={this.props.showModal} onHide={this.props.close}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title className='modal-title-header'>
+              Select an Artist
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
+            <h4>Currently Selected: {currentArtist}</h4>
             <ButtonGroup vertical block>
               {this.displayMenu()}
             </ButtonGroup>
+            <p className='or'>OR</p>
+            <p>Enter an Artist Below</p>
+            <form onSubmit={this.handleSubmit}>
+              <input
+              type='text'
+              className='form-control'
+              placeholder='Enter an Artist'
+              value={this.state.value}
+              onChange={this.handleChange} />
+            </form>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.props.close}>Close</Button>

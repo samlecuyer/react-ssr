@@ -1,0 +1,38 @@
+.modal-title-header {
+  font-family: $font-primary;
+  font-size: 40px;
+  text-align: center;
+}
+
+.modal-body {
+  font-family: $font-accent;
+
+  .active {
+    background-color: #57aee7;
+    color: #fff;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  .or {
+    font-family: $font-primary;
+    font-size: 56px;
+    padding-top: 40px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  input {
+    margin-top: 20px;
+  }
+}
+
+.modal-footer {
+  text-align: center;
+}

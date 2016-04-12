@@ -5,6 +5,7 @@ class ArtistSelectionModalButton extends React.Component {
   constructor(){
     super();
     this.handleSelection = this.handleSelection.bind(this);
+    this.displayButton = this.displayButton.bind(this);
   }
 
   handleSelection(){
@@ -14,14 +15,30 @@ class ArtistSelectionModalButton extends React.Component {
     close();
   }
 
+  displayButton(){
+    const { artist, active } = this.props;
+
+    if(active){
+      return(
+        <Button
+          onClick={this.handleSelection}
+          className='active'>
+          {artist}
+        </Button>
+      )
+    } else {
+      return(
+        <Button onClick={this.handleSelection}>
+          {artist}
+        </Button>
+      )
+    }
+  }
+
   render(){
     const { artist } = this.props;
 
-    return(
-      <Button onClick={this.handleSelection}>
-        {artist}
-      </Button>
-    )
+    return this.displayButton();
   }
 }
 
