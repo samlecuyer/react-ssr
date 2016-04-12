@@ -47,7 +47,7 @@ app.get('/api/artists/*', function(req, res){
 function handleRender(req, res, data) {
     const initialState = {
       playlistReducer: {
-        artists: ['Elton John', 'Stevie Wonder', 'Frank Sinatra', 'Louis Armstrong', 'Lil Wayne'],
+        artists: ['Elton John', 'Stevie Wonder', 'Frank Sinatra', 'Louis Armstrong', 'Lil Wayne', 'Taylor Swift', 'The Naked and Famous', 'The Antlers'],
         currentArtist: 'Elton John',
         videos: data,
         isFetching: true
