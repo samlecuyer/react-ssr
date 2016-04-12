@@ -1,7 +1,13 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Playlist from '../components/Playlist';
 import * as playlistActions from './../actions/playlistActions';
+
+// Components
+/*
+Uncomment me if you'd like to use a dropdown menu (and comment out the Modal code)!
+import PlaylistDropdown from '../components/PlaylistDropdown';
+*/
+import PlaylistModal from '../components/PlaylistModal';
 
 function mapStateToProps(state){
   return {
@@ -16,4 +22,8 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators(playlistActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Playlist);
+/*
+Uncomment me if you'd like to use a dropdown menu (and comment out the Modal code)!
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistDropdown);
+*/
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistModal);

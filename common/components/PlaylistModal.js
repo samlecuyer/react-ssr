@@ -1,11 +1,10 @@
 import React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import Loading from './Loading';
-import DropdownInstance from './DropdownInstance';
 import ArtistSelectionModal from './ArtistSelectionModal';
 import Songlist from './Songlist';
 
-class Playlist extends React.Component{
+class PlaylistModal extends React.Component{
   constructor(){
     super();
     this.open = this.open.bind(this);
@@ -43,10 +42,6 @@ class Playlist extends React.Component{
           <h1>YouTube Playlist</h1>
           <div className='row'>
             <div className='col-md-12 dropdown-instance'>
-              <DropdownInstance
-                artists={artists}
-                currentArtist={currentArtist}
-                selectArtist={selectArtist} />
               <Button onClick={this.open}>
                 <Glyphicon glyph='music' />
                 <span>&nbsp;</span>
@@ -80,4 +75,4 @@ class Playlist extends React.Component{
   }
 }
 
-export default Playlist;
+export default PlaylistModal;
