@@ -59,3 +59,8 @@ npm start
 
 #### Notes:
 * The application defaults to using a modal to select an artist. You can change this to a dropdown (but lose the functionality of adding an artist), by simply going to /common/containers/App.js and commenting/uncommenting out the necessary lines of code
+
+
+![Main](https://github.com/carlbernardo/react-ssr/blob/dev/common/styles/images/screen1.png)
+![Menu](https://github.com/carlbernardo/react-ssr/blob/dev/common/styles/images/screen2.png)
+![Add an Artist Playlist](https://github.com/carlbernardo/react-ssr/blob/dev/common/styles/images/screen3.png)
